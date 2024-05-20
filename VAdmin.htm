@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Vehicle Admin Interface-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF Vehicle Interface</title>
+    <link rel="icon" type="image/png" href="SF-Logo2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: #fff;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 4px;
+        }
+
+        .header h1 {
+            font-weight: bold;
+        }
+
+        .Vadmin-section {
+            padding: 20px;
+            background: #333;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        .Vadmin-section h2 {
+            color: #fff;
+        }
+
+        .Vadmin-section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .Vadmin-section li {
+            margin-bottom: 10px;
+        }
+
+        .Vadmin-section a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .Vadmin-section a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        main {
+            padding: 20px;
+        }
+        .Vadmin-section ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .Vadmin-section ul li {
+            margin-bottom: 20px;
+        }
+        .Vadmin-section ul li ul {
+            margin-top: 10px;
+        }
+        .Vadmin-section ul li ul li {
+            margin-left: 20px;
+        }
+        .expense-form {
+            margin-top: 20px;
+            border: 1px solid #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .expense-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #222;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .expense-form input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .expense-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .dashboard-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .status-square {
+            width: 45%;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .fleet-overview {
+            background-color: #28a745; /* Green color */
+        }
+
+        .maintenance-alerts {
+            background-color: #ffc107; /* Yellow color */
+        }
+
+        .alert {
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <img src="SF-Logo1.png" alt="SFLogo" class="logo">
+    <h1>Sahel Fleet Vehicle Administrator Interface</h1>
+</header>
+
+<main> 
+    <section class="Vadmin-section">
+        <br><h2><b><i><u>Overview on Vehicle Admin functionalities</u></i></b></h2><br><br>
+        <ul>
+            <li><a href="#vehicle-details">Vehicle Details</a>
+                <ul>
+                    <li>• &nbsp;View Vehicles</li>
+                    <li>• &nbsp;Add | Update |Delete Vehicles</li>
+                </ul>
+            </li>
+            <li><a href="#expenses-reports">Expenses Reports</a>
+                <ul>
+                    <li>• &nbsp;Regular Check on expenses</li>
+                    <li>• &nbsp;Expense Reporting</li><br><hr><br>
+                </ul>
+            </li>
+            <li><a href="#status-Dashboard&alerts">Fleet Status Dashboard & Maintenance Alerts</a>
+                <ul>
+                    <li>• &nbsp;At-a-Glance Fleet Overview</li>
+                    <li>• &nbsp;Notifications for Renewals and Inspections</li><br><hr><br>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</main>
+<footer>
+    <br><br><br><br>
+    <section id="vehicle-details">
+        <br><h2><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>⌕ Vehicle Management</u></i></b></h2><br><br>
+    
+        <!-- View Vehicles and their assignments (status) -->
+        <table border="1px" color="yellow" width="100%">
+            <caption>
+                <h4 style="display: inline-flex;"><box-icon type='solid' color="yellow" animation="flashing" name='car' style="margin-right: 5px;"></box-icon>View Vehicles</h4>
+            </caption>
+            <tr>
+                <th>Registration number</th>
+                <th>Brand</th>
+                <th>Vehicle Condition</th>
+            </tr>
+            <!-- Vehicle data will be populated dynamically here using PHP -->
+        </table>
+        <br><br><br>
+        <!-- Add Update Delete Vehicles Form -->
+        <div class="vehicle-form">
+            <h3>Add | Update | Delete Vehicles</h3>
+            <form id="vehicleForm">
+                <fieldset>
+                    <legend>Vehicle Details:</legend><br>
+                    <label for="registrationNumber">&nbsp;&nbsp;•&nbsp;Registration Number:</label>
+                    <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
+    
+                    <label for="brand">&nbsp;&nbsp;•&nbsp;Brand:</label>
+                    <input type="text" id="brand" name="brand" required><br><br>
+    
+                    <!-- Default vehicle condition set to "Ready to be assigned" -->
+                    <input type="hidden" id="condition" name="condition" value="Ready to be assigned">&nbsp;&nbsp;&nbsp;
+    
+                    <!-- Add / Update / Delete Buttons -->
+                    <input type="submit" value="Add Vehicle" id="addVehicle">&nbsp;
+                    <input type="submit" value="Update Vehicle" id="updateVehicle">&nbsp;
+                    <input type="submit" value="Delete Vehicle" id="deleteVehicle"><br><br>
+                </fieldset>
+            </form>
+        </div>
+    </section><br><br><br><br>
+    
+    <section id="expenses-reports">
+        <br>
+        <h2><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>€ Expenses Management</u></i></b></h2><br><br>
+    
+        <!-- View Expenses -->
+        <div class="expense-view">
+            <h3>View Expenses:</h3>
+            <table border="1" style="width:100%">
+                <caption>Expenses Overview</caption>
+                <tr>
+                    <th>Expense</th>
+                    <th>Type</th>
+                    <th>Cost</th>
+                </tr>
+                <!-- Expense data will be populated dynamically here using PHP -->
+                <tr>
+                    <td>Expense 1</td>
+                    <td>Type 1</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>Expense 2</td>
+                    <td>Type 2</td>
+                    <td>$200</td>
+                </tr>
+                <!-- Add more rows for additional expenses -->
+            </table>
+        </div>
+        <br><br>
+    
+        <!-- Report Expense Form -->
+        <div class="expense-form">
+            <h3>〤 Report Expense:</h3><br>
+            <form id="expenseForm">
+                <label for="expense">Expense:</label><br>
+                <input type="text" id="expense" name="expense" required><br>
+                <label for="type">Type:</label><br>
+                <input type="text" id="type" name="type" required><br>
+                <label for="cost">Cost:</label><br>
+                <input type="text" id="cost" name="cost" required><br>
+                <input type="submit" value="Submit Expense">
+            </form>
+        </div>
+    
+        <br><br><br>
+    </section><br><br><br>
+
+    <section id="status-Dashboard&alerts">
+        <br>
+        <h2><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>〤Fleet Status and Alerts Dashboards</u></i></b></h2><br><br>
+        
+        <!-- Fleet Overview and Maintenance Alerts -->
+        <div class="dashboard-container">
+            <!-- Fleet Overview Square -->
+            <div class="status-square fleet-overview">
+                <h3>Fleet Overview</h3>
+                <p>Total Vehicles: <span id="total-vehicles">0</span></p>
+                <p>Active Vehicles: <span id="active-vehicles">0</span></p>
+                <p>Maintenance Vehicles: <span id="maintenance-vehicles">0</span></p>
+            </div>
+            <!-- Maintenance Alerts Square -->
+            <div class="status-square maintenance-alerts">
+                <h3>Maintenance Alerts</h3>
+                <div class="alert">Renewal Alert: Vehicle Registration</div>
+                <div class="alert">Inspection Alert: Vehicle Inspection</div>
+                <!-- Add more alerts if needed -->
+            </div>
+        </div>
+        <br><br>
+    </section>    
+   
+    <br><br><br><br>
+
+</footer>
+
+</body>
+</html>

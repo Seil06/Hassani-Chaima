@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Admin Interface-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF Admin Interface</title>
+    <link rel="icon" type="image/png" href="SF-Logo2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: #fff;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 4px;
+        }
+
+        .header h1 {
+            font-weight: bold;
+        }
+
+        .admin-section {
+            padding: 20px;
+            background: #333;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        .admin-section h2 {
+            color: #fff;
+        }
+
+        .admin-section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .admin-section li {
+            margin-bottom: 10px;
+        }
+
+        .admin-section a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .admin-section a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        #notifications {
+            color: #000;
+            background-color: hwb(95 54% 0%);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .notification-settings {
+            margin-bottom: 30px;
+        }
+
+        .notification-settings label {
+            font-weight: bold;
+        }
+
+        .notification-list ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .notification-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body> 
+
+<header class="header">
+    <img src="SF-Logo2.png" alt="SFLogo" class="logo">
+    <h1>Sahel Fleet Admin Interface</h1>
+</header>
+
+<main> 
+   <!-- Admin Interface section -->
+<section class="admin-section">
+    <br><h2><b><i><u>Over view on Admin functionalities</u></i></b></h2><br><br>
+    <ul>
+        <li><a href="#Driver-Account">Driver Account Management</a>
+            <ul>
+                <br><li>• &nbsp;Create</li>
+                <li>• &nbsp;View</li>
+                <li>• &nbsp;Edit and Delete Driver Profiles</li><br><hr><br>
+            </ul>
+        </li>
+        <li><a href="#vehicle-management">Vehicle Management</a>
+            <ul>
+                <br><li>• &nbsp;Vehicle Assignment</li>
+                <br><li>• &nbsp;Add Update Delete Vehicles</li><br><hr><br>
+            </ul>
+        </li>
+        <li><a href="#expenses-management">Expenses Management</a>
+            <ul>
+                <br><li>• &nbsp;View Expenses</li>
+                <li>• &nbsp;Approve Expense Submissions</li><br><hr><br>
+            </ul>
+        </li>
+        <li><a href="#mission-management">Mission Management</a>
+            <ul>
+                <br><li>• &nbsp;Assign Missions</li>
+                <li>• &nbsp;Keep Mission History</li><br><hr><br>
+            </ul>
+        </li>
+        <li><a href="#notifications">Notifications</a>
+            <ul>
+                <br><li>• &nbsp;Notifications Settings</li><br><hr><br>
+            </ul>
+        </li>
+    </ul>
+</section>
+</main>
+   
+<footer>
+    <br><br><br><br>
+    <section id="Driver-Account">
+        <br><h2><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>► Driver Account Management</u></i></b></h2><br><br>
+        <h3 style="display: inline-flex;"><box-icon name='user-plus' color="yellow" style="margin-right: 5px;" animation="flashing"></box-icon><u><i>Create driver profil</i></u></h3><br>
+        <br>
+        <form>
+           <fieldset>
+            <legend><h4>&nbsp;&nbsp;<u>Driver Personal informations:&nbsp;&nbsp;</u></h4></legend><br>
+          <label for="driverFName">&nbsp;&nbsp;•&nbsp;Driver First Name:&nbsp;&nbsp;</label>
+          <input type="text" id="driverFName" name="driverFName" placeholder="First name">&nbsp;&nbsp;
+          <label for="driverLName">•&nbsp;Driver Last Name:&nbsp;&nbsp;</label>
+          <input type="text" id="driverLName" name="driverLName" placeholder="Last name"><br><br>
+          <label for="driverPicture">&nbsp;&nbsp;•&nbsp;Driver Picture:</label>
+          <input type="file" id="driverPicture" name="driverPicture" accept="image/*"><br><br>
+          <label>&nbsp;&nbsp;•&nbsp;Age&nbsp;&nbsp;</label>
+          <input type="number" name="age"min="18" max="65" placeholder="age" /><br ><br>
+          <label for="driverLicense">&nbsp;&nbsp;•&nbsp;Driver License:&nbsp;&nbsp;</label>
+          <select name="driverLicense">
+            <option value="00">driving license type</option>
+            <option value="01">A1</option>             
+            <option value="02">A</option>
+            <option value="03">B</option>
+            <option value="04">B(E)</option>
+            <option value="05">C1</option>
+            <option value="06">C1(E)</option>
+            <option value="07">C</option>
+            <option value="08">C(E)</option>
+            <option value="09">D</option>
+            <option value="10">D(E)</option>
+            <option value="11">F</option>
+           </select>
+          <br><br>
+          <label for="experience">&nbsp;&nbsp;•&nbsp;Driver experience&nbsp;&nbsp;</label>
+          <input type="number" id="experience"  min="0" name="experience" required><br><br>
+          <label>&nbsp;&nbsp;•&nbsp;Driver Email&nbsp;&nbsp;</label><input type="email" name="email" placeholder="@mail" required><br ><br>
+          <label>&nbsp;&nbsp;•&nbsp;Password&nbsp;&nbsp;</label><input type="password" name="password" placeholder="password" required><br ><br>
+          <label>&nbsp;&nbsp;•&nbsp;Confirm Password&nbsp;&nbsp;</label><input type="password" name="password" placeholder="Confirm" required>
+          <input type="reset" value="Cancel">&nbsp;<input type="submit" value="Send data" name="sbt" >
+           <br><br><br> </fieldset>
+        </form>
+        <br><br><br>
+    </section><br><br><br><br>
+
+    <section id="vehicle-management">
+        <br><h2><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>► Vehicle Management</u></i></b></h2><br><br>
+    
+        <!-- View Vehicles and their assignments (status) -->
+        <table border="1px" color="yellow" width="100%">
+            <caption>
+                <h4 style="display: inline-flex;"><box-icon type='solid' color="yellow" animation="flashing" name='car' style="margin-right: 5px;"></box-icon>View Vehicles</h4>
+            </caption>
+            <tr>
+                <th>Registration number</th>
+                <th>Brand</th>
+                <th>Vehicle Condition</th>
+            </tr>
+            <!-- Vehicle data will be populated dynamically here using PHP -->
+        </table>
+        <br><br><br>
+        <!-- Add Update Delete Vehicles Form -->
+        <div class="vehicle-form">
+            <h3>Add | Update | Delete Vehicles</h3>
+            <form id="vehicleForm">
+                <fieldset>
+                    <legend>Vehicle Details:</legend><br>
+                    <label for="registrationNumber">&nbsp;&nbsp;•&nbsp;Registration Number:</label>
+                    <input type="text" id="registrationNumber" name="registrationNumber" required><br><br>
+    
+                    <label for="brand">&nbsp;&nbsp;•&nbsp;Brand:</label>
+                    <input type="text" id="brand" name="brand" required><br><br>
+    
+                    <!-- Default vehicle condition set to "Ready to be assigned" -->
+                    <input type="hidden" id="condition" name="condition" value="Ready to be assigned">&nbsp;&nbsp;&nbsp;
+    
+                    <!-- Add / Update / Delete Buttons -->
+                    <input type="submit" value="Add Vehicle" id="addVehicle">&nbsp;
+                    <input type="submit" value="Update Vehicle" id="updateVehicle">&nbsp;
+                    <input type="submit" value="Delete Vehicle" id="deleteVehicle"><br><br>
+                </fieldset>
+            </form>
+        </div>
+    </section><br><br><br><br>
+    
+    
+    <section id="expenses-management">
+        <br>
+        <h2><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>► Expenses Management</u></i></b></h2><br><br>
+    
+        <!-- View Expenses -->
+        <div class="expense-view">
+            <h3>View Expenses:</h3>
+            <table border="1" style="width:100%">
+                <caption>Expenses Overview</caption>
+                <tr>
+                    <th>Expense</th>
+                    <th>Type</th>
+                    <th>Cost</th>
+                </tr>
+                <!-- Expense data will be populated dynamically here using PHP -->
+                <tr>
+                    <td>Expense 1</td>
+                    <td>Type 1</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>Expense 2</td>
+                    <td>Type 2</td>
+                    <td>$200</td>
+                </tr>
+                <!-- Add more rows for additional expenses -->
+            </table>
+        </div>
+        <br><br>
+    
+        <!-- Approve Expense Submissions -->
+        <div class="expense-approval">
+            <h3>Approve Expense Submissions:</h3>
+            <form>
+                <fieldset>
+                    <legend>Select Expense Submission:</legend>
+                    <select id="expenseSubmission" name="expenseSubmission">
+                        <!-- Option values will be populated dynamically using PHP -->
+                        <option value="expense1">Expense 1</option>
+                        <option value="expense2">Expense 2</option>
+                        <!-- Add more options for additional expenses -->
+                    </select>
+                    <br><br>
+                    <label for="approvalStatus">Approval Status:</label>
+                    <select id="approvalStatus" name="approvalStatus">
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <br><br>
+                    <input type="submit" value="Submit Approval">
+                </fieldset>
+            </form>
+        </div>
+    
+        <br><br><br>
+    </section>
+    <br><br><br><br>
+        
+   <section id="mission-management">
+        <br><h2><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>► Mission Management</u></i></b></h2><br><br>
+        <form>
+            <fieldset>
+                <legend><h4>&nbsp;&nbsp;<u>Add Mission:&nbsp;&nbsp;</u></h4></legend><br>
+                <label>&nbsp;&nbsp;•&nbsp;Day of the Mission&nbsp;&nbsp;</label><input type="date" name="day-of-the-mission" placeholder="Depart"><br><br>
+                <label>&nbsp;&nbsp;•&nbsp;Car Selected&nbsp;&nbsp;</label><select name="car-selected"></select><br><br>
+                <label>&nbsp;&nbsp;•&nbsp;Driver Full Name&nbsp;&nbsp;</label><select name="driver-mission"></select><br><br>
+                <label>&nbsp;&nbsp;•&nbsp;Client Name&nbsp;&nbsp;</label><input type="text" name="client" placeholder="Client Name"><br><br>
+                <label>&nbsp;&nbsp;•&nbsp;Client Phone Number&nbsp;&nbsp;</label><input type="number" name="clientnbr" placeholder="Client Phone  Number"><br><br>
+                <label>&nbsp;&nbsp;•&nbsp;Arrival Address&nbsp;&nbsp;</label><textarea name="adresse"></textarea><br><br>
+                <label>&nbsp;&nbsp;•&nbsp;Description of the Mission&nbsp;&nbsp;</label><textarea placeholder="Description of the Mission"></textarea><br><br>
+                
+                &nbsp;&nbsp;<input type="reset" value="Cancel">&nbsp;&nbsp;<input type="submit" value="Send Data" name="sbt" ><br><br><br>
+            </fieldset>
+        </form><br><br><br>
+   </section><br><br><br><br>
+     
+   <section id="notifications">
+    <br>
+    <h2><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>► Notifications Management</u></i></b></h2><br><br>
+    <div class="notification-settings">
+        <h3>Notification Settings :</h3><br>
+        <form>
+            <fieldset><br>
+            <label for="push-notifications">&nbsp;&nbsp;Push Notifications</label>
+            <input type="checkbox" id="push-notifications" name="push-notifications" checked><br><br>
+              &nbsp; &nbsp;
+            <input type="submit" value="Save Settings"><br><br>
+          </fieldset>
+        </form>
+    </div><br><br>
+ 
+    <div class="email-notification-form">
+        <h3>Send Email Notification :</h3><br>
+        <form id="emailForm">
+            <fieldset>
+                <br>
+                <label for="recipientType">&nbsp;&nbsp;Recipient Type:</label><br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <select id="recipientType" name="recipientType">
+                    <option value="driver">Driver</option>
+                    <option value="vehicleAdmin">Vehicle Administrator</option>
+                </select><br><br>
+    
+                <label for="notificationType">&nbsp;&nbsp;Notification Type:</label><br>&nbsp;&nbsp;&nbsp;&nbsp;
+                <select id="notificationType" name="notificationType">
+                    <option value="newAssignment">New Assignment Notification</option>
+                    <option value="alert">Alert</option>
+                </select><br><br>
+    
+                <label for="driverId">&nbsp;&nbsp;Select the ID(s) of Driver(s) or Vehicle Administrator(s):</label><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select id="driverId" name="driverId" multiple>
+                    <!-- Option values will be populated dynamically using php-->
+                </select><br><br>
+    
+                <label for="emailMessage">&nbsp;&nbsp;Message:</label><br><p>&nbsp;</p>&nbsp;&nbsp;&nbsp;&nbsp;
+                <textarea id="emailMessage" name="emailMessage" rows="4" placeholder="Type your message here..."></textarea><br><br>&nbsp;&nbsp;
+    
+                <input type="submit" value="Send Email"><br><br>
+            </fieldset>
+        </form>
+    </div>
+    <br><br>
+    <div class="notification-list">
+        <h3>Recent Notifications :</h3><br>
+        <table border="1" style="width:100%">
+            <tr>
+                <th>Mission Assignment</th>
+                <th>Document Submission Reminder</th>
+                <th>Vehicle Service Alert</th>
+            </tr>
+            <tr>
+                <td>You have been assigned a new mission for May 10, 2024.</td>
+                <td>Please submit your monthly expense reports by the 5th.</td>
+                <td>Vehicle ABC1234 requires scheduled maintenance.</td>
+            </tr>
+            <tr>
+                <td>Another mission assignment notification</td>
+                <td>Another document submission reminder</td>
+                <td>Another vehicle service alert</td>
+            </tr>
+            <tr>
+                <td>Third mission assignment notification</td>
+                <td>Third document submission reminder</td>
+                <td>Third vehicle service alert</td>
+            </tr>
+            <tr>
+                <td>Fourth mission assignment notification</td>
+                <td>Fourth document submission reminder</td>
+                <td>Fourth vehicle service alert</td>
+            </tr>
+            <tr>
+                <td>Fifth mission assignment notification</td>
+                <td>Fifth document submission reminder</td>
+                <td>Fifth vehicle service alert</td>
+            </tr>
+        </table>
+    </div>
+    <br><br><br>
+</section>
+  <br><br><br><br>
+ 
+  </footer>
+ 
+</body>
+</html>

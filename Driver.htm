@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Driver Interface -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF Driver Interface</title>
+    <link rel="icon" type="image/png" href="SF-Logo1.png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* CSS Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        body {
+            background: #fff;
+            color:  #000;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 4px;
+        }
+
+        .header h1 {
+            font-weight: bold;
+            color: #55b23e;
+        }
+
+        .driver-section {
+            padding: 20px;
+            background: #9d1616;
+            margin: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .driver-section h2 {
+            color: #fff;
+        }
+
+        .driver-section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .driver-section li {
+            margin-bottom: 10px;
+        }
+
+        .driver-section a {
+            background-color: yellow;
+            border-radius: 3px; 
+            color: #125e6a;
+            text-decoration: none;
+        }
+
+        .driver-section a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        main {
+            padding: 20px;
+        }
+        .driver-section ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .driver-section ul li {
+            margin-bottom: 20px;
+        }
+        .driver-section ul li ul {
+            margin-top: 10px;
+        }
+        .driver-section ul li ul li {
+            margin-left: 20px;
+        }
+
+        /* Form Styles */
+        .profile-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            border: 1px solid #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .profile-form input[type="text"],
+        .profile-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #222;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .profile-form input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .profile-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Mission Details Styles */
+        .mission-details {
+            padding: 20px;
+            background: #9d1616;
+            margin: 10px;
+            border-radius: 8px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .mission-details h2 {
+            color: #fff;
+        }
+
+        .mission-details table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .mission-details th, .mission-details td {
+            border: 1px solid #fff;
+            padding: 8px;
+        }
+
+        .mission-details th {
+            background-color: #125e6a; /* Dark blue */
+            color: #fff;
+        }
+
+        .mission-details tr:nth-child(even) {
+            background-color: #125e6a; /* Dark blue */
+        }
+
+        .mission-details tr:nth-child(odd) {
+            background-color: #007bff; /* Light blue */
+        }
+
+        .mission-details tr:hover {
+            background-color: #0056b3; /* Darker light blue */
+        }
+
+        /* Notifications Styles */
+        .notifications {
+            padding: 20px;
+            background: #9d1616;
+            margin: 10px;
+            border-radius: 8px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .notifications h2 {
+            color: #fff;
+        }
+
+        .notifications table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .notifications th, .notifications td {
+            border: 1px solid #fff;
+            padding: 8px;
+        }
+
+        .notifications th {
+            background-color: #125e6a; /* Dark blue */
+            color: #fff;
+        }
+
+        .notifications tr:nth-child(even) {
+            background-color: #125e6a; /* Dark blue */
+        }
+
+        .notifications tr:nth-child(odd) {
+            background-color: #007bff; /* Light blue */
+        }
+
+        .notifications tr:hover {
+            background-color: #0056b3; /* Darker light blue */
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <img src="SFWhiteTheme.png" alt="SFLogo" class="logo">
+    <h1>Sahel Fleet Driver Interface</h1>
+</header>
+
+<main> 
+    <section class="driver-section">
+        <br><h2><b><i><u>Driver functionalities</u></i></b></h2><br><br>
+        <ul>
+            <li><a href="#personal-dashboard">Personal Dashboard</a>
+                <ul>
+                    <li>• &nbsp;View/Update Profile</li>
+                    <li>• &nbsp;Access Assigned Missions</li><br><hr><br>
+                    
+                </ul>
+            </li>
+            <!-- Mission Details -->
+            <li><a href="#mission-details">Missions</a>
+                <ul>
+                    <li>• &nbsp;List of assigned Missions Information</li>
+                    <li>• &nbsp;Missions Information</li><br><hr><br>
+                </ul>
+            </li>
+            <!-- Notifications -->
+            <li><a href="#notifications">Notifications</a>
+                <ul>
+                    <li>• &nbsp;Receive Mission Assignments and Updates</li>
+                    <li>• &nbsp;Submit Expenses</li><br><hr><br>
+                </ul>
+            </li>
+            <li><a href="#expenses-emergencies">Reorts of Expenses and Emergencies</a>
+                <ul>
+                    <li>• &nbsp;Submit Expenses</li>
+                    <li>• &nbsp;Reort</li><br><hr><br>
+                </ul>
+            </li>
+
+        </ul>
+    </section>
+       
+    <!-- Personal Dashboard Section -->
+    <section id="personal-dashboard" class="driver-section">
+        <br><h2><b><i><u>Personal Dashboard</u></i></b></h2><br><br>
+        
+        <!-- View Profile Form -->
+        <div class="profile-form">
+            <fieldset>
+                <legend>View Profile</legend>
+                <!-- Profile Picture -->
+                <img src="driver_profile_picture.jpg" alt="Driver Profile Picture" style="max-width: 200px;"><br><br>
+                <!-- Full Name -->
+                <label for="full-name">Full Name:</label><br>
+                <input type="text" id="full-name" name="full-name" value="John Doe" readonly><br>
+                <!-- Email -->
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email" value="john.doe@example.com" readonly><br>
+                <!-- ID -->
+                <label for="id">ID:</label><br>
+                <input type="text" id="id" name="id" value="123456789" readonly><br>
+            </fieldset>
+        </div>
+
+        <!-- Edit Profile Form -->
+        <div class="profile-form">
+            <fieldset>
+                <legend>Edit Profile</legend>
+                <!-- New Email -->
+                <label for="new-email">New Email:</label><br>
+                <input type="text" id="new-email" name="new-email" required><br>
+                <!-- New Email Password -->
+                <label for="new-email-password">New Email Password:</label><br>
+                <input type="password" id="new-email-password" name="new-email-password" required><br>
+                <!-- Confirm New Email Password -->
+                <label for="confirm-email-password">Confirm New Email Password:</label><br>
+                <input type="password" id="confirm-email-password" name="confirm-email-password" required><br>
+                <!-- Profile Picture -->
+                <label for="profile-picture">Profile Picture:</label><br>
+                <input type="file" id="profile-picture" name="profile-picture"><br>
+                <!-- Remove Profile Picture -->
+                <label for="remove-picture">Remove Profile Picture:</label><br>
+                <input type="checkbox" id="remove-picture" name="remove-picture"><br><br>
+                <!-- Submit Button -->
+                <input type="submit" value="Update Profile">
+            </fieldset>
+        </div>
+    </section><br><br><br><br>
+
+     <!-- Mission Details Section -->
+     <section id="mission-details" class="mission-details">
+        <br><h2><b><i><u>Mission Details</u></i></b></h2><br><br>
+        
+        <!-- Mission Information Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Car</th>
+                    <th>Client Name</th>
+                    <th>Client Phone Number</th>
+                    <th>Arrival Address</th>
+                    <th>Description of the Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>Toyota Corolla</td>
+                    <td>John Smith</td>
+                    <td>123-456-7890</td>
+                    <td>123 Main St</td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                </tr>
+                <!-- Add more rows for additional missions -->
+            </tbody>
+        </table>
+    </section><br><br><br><br>
+
+     <!-- Notifications Section -->
+     <section id="notifications" class="notifications">
+        <br><h2><b><i><u>Notifications</u></i></b></h2><br><br>
+        
+        <!-- Notifications Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>New Assignment</td>
+                    <td>You have been assigned a new mission. Please check your dashboard.</td>
+                </tr>
+                <tr>
+                    <td>Alert</td>
+                    <td>There is a road closure on Main Street. Please reroute accordingly.</td>
+                </tr>
+                <!-- Add more rows for additional notifications -->
+            </tbody>
+        </table>
+    </section><br><br><br><br>
+    <!-- Expenses and Emergencies Section -->
+<section id="expenses-emergencies" class="driver-section">
+    <br><h2><b><i><u>Expenses and Emergencies</u></i></b></h2><br><br>
+    
+    <!-- Expense Report Form -->
+    <div class="profile-form">
+        <fieldset>
+            <legend>Report Expenses</legend>
+            <!-- Expense Description -->
+            <label for="expense-description">Description:</label><br>
+            <textarea id="expense-description" name="expense-description" rows="4" required></textarea><br>
+            <!-- Expense Amount -->
+            <label for="expense-amount">Amount:</label><br>
+            <input type="number" id="expense-amount" name="expense-amount" required><br>
+            <!-- Receipt Image -->
+            <label for="receipt-image">Receipt Image:</label><br>
+            <input type="file" id="receipt-image" name="receipt-image"><br><br>
+            <!-- Submit Button -->
+            <input type="submit" value="Submit Expense Report">
+        </fieldset>
+    </div>
+
+    <!-- Emergency Contact Information -->
+    <div class="profile-form">
+        <fieldset>
+            <legend>Emergency Contact</legend>
+            <!-- Contact Name -->
+            <label for="contact-name">Name:</label><br>
+            <input type="text" id="contact-name" name="contact-name" required><br>
+            <!-- Contact Phone Number -->
+            <label for="contact-phone">Phone Number:</label><br>
+            <input type="tel" id="contact-phone" name="contact-phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
+            <!-- Submit Button -->
+            <input type="submit" value="Submit Emergency Contact">
+        </fieldset>
+    </div>
+</section>
+
+</main>
+
+  <br><br><br><br>
+ <footer>
+    <!-- Footer Content Here -->
+ </footer>
+
+</body>
+</html>
